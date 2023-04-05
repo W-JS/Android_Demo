@@ -24,6 +24,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    lint {
+        baseline = file("lint-baseline.xml")
+    }
 }
 
 dependencies {
@@ -33,3 +36,28 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
+
+
+// Copy类型
+task makeJar(type: Copy) {
+    def _BASENAME = 'appsdk';
+    def _VERSION = '_V1.0';
+    def _NAME = _BASENAME + _VERSION + '.jar';
+    //生成jar包的位置
+    def _DestinationPath = 'build/libs/';
+
+    // 删除存在的 jar 包
+    delete _DestinationPath + _NAME
+    // 设置拷贝的文件
+    from('build/intermediates/aar_main_jar/release/')
+    // 打进jar包后的文件目录
+    into(_DestinationPath)
+    // 将classes.jar放入build/libs/目录下
+    // include ,exclude 参数来设置过滤
+    //（我们只关心classes.jar这个文件）
+    include('classes.jar')
+    // 重命名
+    rename('classes.jar', _NAME)
+}
+
+makeJar.dependsOn(build)
