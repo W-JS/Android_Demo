@@ -20,6 +20,6 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(MainActivity.this, "调用jar包方法测试时间：" + todayDateTime, Toast.LENGTH_SHORT).show();
 
         String todayDateTime1 = DateUtils.getTodayDateTime();
-        Log.d("MainActivity", "onCreate: 调用jar包方法测试时间：" + todayDateTime1);
+        Log.d("MainActivity", "onCreate: 调用aar包方法测试时间：" + todayDateTime1);
     }
 }
