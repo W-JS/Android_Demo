@@ -41,8 +41,9 @@ dependencies {
 // Copy类型
 task makeJar(type: Copy) {
     def _BASENAME = 'appsdk';
-    def _VERSION = '_V1.0';
-    def _NAME = _BASENAME + _VERSION + '.jar';
+    def _VERSION = '_V1.0_';
+    def _RELEASE_TIME = new Date().format("yyyyMMddHHmmss", TimeZone.getTimeZone("GMT+08:00"));
+    def _NAME = _BASENAME + _VERSION + _RELEASE_TIME + '.jar';
     //生成jar包的位置
     def _DestinationPath = 'build/libs/';
 
