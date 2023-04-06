@@ -21,5 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
         String todayDateTime1 = DateUtils.getTodayDateTime();
         Log.d("MainActivity", "onCreate: 调用aar包方法测试时间：" + todayDateTime1);
+        Log.d("MainActivity", "releaseTime:" + BuildConfig.RELEASE_TIME);
     }
 }
