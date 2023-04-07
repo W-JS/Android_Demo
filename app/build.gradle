@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat
+
 plugins {
     id 'com.android.application'
 }
@@ -15,6 +17,8 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("String", "RELEASE_TIME", "\"" + "${releaseTime()}" + "\"")
+
+        buildConfigField "String", "GIT_COMMITINFO", "\"${getGitCommitInfo()}\""
     }
 
     buildTypes {
@@ -58,4 +62,66 @@ dependencies {
 // 定义获取编译时间的接口
 def releaseTime() {
     new Date().format("yyyyMMddHHmmss", TimeZone.getTimeZone("GMT+08:00"))
+}
+
+// 获取 Git 分支信息
+def getGitBranch() {
+    return 'git rev-parse --abbrev-ref HEAD'.execute().text.trim()
+}
+
+// 获取 Git 分支下 CommitId 信息
+def getGitCommitId() {
+    return 'git rev-parse --short HEAD'.execute().text.trim()
+//    return 'git describe --always'.execute().text.trim()
+}
+
+// 获取 Git 分支下该 CommitId 的 CommitText 信息
+def getGitCommitText() {
+    String commitId = getGitCommitId();
+    String cmd = "git log --pretty=format:%s $commitId -1";
+    return cmd.execute().text.trim()
+}
+
+// 获取 Git 分支下该 CommitId 的 CommitTime 信息
+def getGitCommitTime() {
+    String commitId = getGitCommitId();
+    String cmd = "git log --pretty=format:%ai $commitId -1";
+    return cmd.execute().text.trim();
+}
+
+// 获取 Git 分支下该 CommitId 的 CommitAuthorName 信息
+def getGitCommitAuthorName() {
+    String commitId = getGitCommitId();
+    String cmd = "git log --pretty=format:%an $commitId -1";
+    return cmd.execute().text.trim()
+}
+
+// 获取 Git 分支下该 CommitId 的 CommitAuthorEmail 信息
+def getGitCommitAuthorEmail() {
+    String commitId = getGitCommitId();
+    String cmd = "git log --pretty=format:%ae $commitId -1";
+    return cmd.execute().text.trim()
+}
+
+// 获取生成包时间
+def getBuildPackageTime() {
+    return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())
+}
+
+// 获取 Git 分支下该 CommitId 的 CustomCommitInfo 信息
+def getGitCommitInfo() {
+    String branch = getGitBranch();
+    String commitId = getGitCommitId();
+    String commitText = getGitCommitText();
+    String commitTime = getGitCommitTime();
+    String commitAuthorName = getGitCommitAuthorName();
+    String commitAuthorEmail = getGitCommitAuthorEmail();
+    String buildPackageTime = getBuildPackageTime();
+    return "branch:" + branch + "," +
+            "commitId:" + commitId + "," +
+            "commitText:" + commitText + "," +
+            "commitTime:" + commitTime + "," +
+            "commitAuthorName:" + commitAuthorName + "," +
+            "commitAuthorEmail:" + commitAuthorEmail + "," +
+            "buildPackageTime:" + buildPackageTime;
 }
