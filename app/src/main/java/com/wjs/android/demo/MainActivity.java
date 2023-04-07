@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.wjs.android.demo.utils.PropertiesUtils;
 import com.wjs.android.mylibrary.utils.DateTimeUtils;
 import com.wjs.android.mylibrary2.utils.DateUtils;
 
@@ -23,5 +24,6 @@ public class MainActivity extends AppCompatActivity {
         Log.d("MainActivity", "onCreate: 调用aar包方法测试时间：" + todayDateTime1);
         Log.d("MainActivity", "releaseTime:" + BuildConfig.RELEASE_TIME);
         Log.d("MainActivity", "getGitCommitInfo:" + BuildConfig.GIT_COMMITINFO);
+        Log.d("MainActivity", "getGitCommitInfo:" + PropertiesUtils.getGitCommitInfo());
     }
 }
