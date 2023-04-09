@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.widget_extra.button.ICIRealButton;
+import com.wjs.android.demo.model.ScreenInfo;
 import com.wjs.android.demo.utils.DialogUtils;
 import com.wjs.android.demo.utils.PropertiesUtils;
 import com.wjs.android.demo.utils.ToastUtils;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.btn_real_test:
                 Log.d(TAG, "onClick: 测试");
+                Log.d(TAG, "onClick: ScreenInfo: " + ScreenInfo.getScreenInfo(this));
                 ToastUtils.showTestToast(this);
                 DialogUtils.getInstance(this).showTestDialog("这是一个测试Dialog");
                 break;
