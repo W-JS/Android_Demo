@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <View
+        android:id="@+id/ici_list_leftgap"
+        android:layout_width="1px"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:id="@+id/ici_list_leftimage"
+        android:layout_width="60px"
+        android:layout_height="match_parent"
+        android:layout_marginRight="10px"
+        android:paddingTop="30px"
+        android:paddingBottom="30px"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/ici_list_textgroup"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical" />
+
+    <View
+        android:layout_width="0px"
+        android:layout_height="match_parent"
+        android:layout_weight="1"></View>
+
+    <LinearLayout
+        android:id="@+id/ici_list_rightgroup"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal" />
+
+    <View
+        android:id="@+id/ici_list_right_gap"
+        android:layout_width="1px"
+        android:layout_height="wrap_content" />
+</merge>

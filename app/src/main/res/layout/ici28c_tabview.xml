@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/ici_tabview_bootomLine"
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_alignParentBottom="true"></View>
+
+    <ImageView
+        android:id="@+id/ici_tabview_back"
+        android:layout_width="128px"
+        android:layout_height="114px"
+        android:paddingLeft="28px"
+        android:paddingTop="21px"
+        android:paddingRight="28px"
+        android:paddingBottom="21px"
+        android:visibility="gone" />
+
+    <View
+        android:id="@+id/ici_tabview_leftgap"
+        android:layout_width="1px"
+        android:layout_height="114px"
+        android:layout_toRightOf="@id/ici_tabview_back" />
+
+    <LinearLayout
+        android:id="@+id/ici_tabview_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/ici_tabview_leftgap"
+        android:gravity="center"
+        android:orientation="horizontal"></LinearLayout>
+
+    <View
+        android:id="@+id/ici_tabview_rightgap"
+        android:layout_width="1px"
+        android:layout_height="114px"
+        android:layout_toRightOf="@id/ici_tabview_group" />
+
+    <LinearLayout
+        android:id="@+id/ici_tabview_rightgroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/ici_tabview_rightgap"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <com.android.widget_extra.button.ICIIconButton
+            android:id="@+id/ici_tab_search"
+            android:layout_width="128px"
+            android:layout_height="114px"
+            android:paddingLeft="34px"
+            android:paddingTop="27px"
+            android:paddingRight="34px"
+            android:paddingBottom="27px" />
+
+        <com.android.widget_extra.button.ICIIconButton
+            android:id="@+id/ici_tab_setting"
+            android:layout_width="128px"
+            android:layout_height="114px"
+            android:layout_marginLeft="2px"
+            android:layout_marginRight="4px"
+            android:paddingLeft="34px"
+            android:paddingTop="27px"
+            android:paddingRight="34px"
+            android:paddingBottom="27px" />
+    </LinearLayout>
+
+    <com.android.widget_extra.tab.ICITabLine
+        android:id="@+id/ici_tab_line"
+        android:layout_width="match_parent"
+        android:layout_height="4px"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"></com.android.widget_extra.tab.ICITabLine>
+
+
+</RelativeLayout>

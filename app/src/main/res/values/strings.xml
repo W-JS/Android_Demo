@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Android_Demo</string>
+
+    <!-- start commonui-->
+    <string name="ici_datepick_year">年</string>
+    <string name="ici_datepick_month">月</string>
+    <string name="ici_datepick_day">日</string>
+    <!-- end commonui-->
 </resources>

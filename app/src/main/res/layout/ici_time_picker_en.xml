@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:contentDescription="ll-picker">
+
+    <LinearLayout
+        android:id="@+id/wheelview_ll_left"
+        android:layout_width="wrap_content"
+        android:layout_height="266px"
+        android:contentDescription="ll-left"
+        android:orientation="horizontal">
+
+        <com.android.widget_extra.wheelview.WheelView
+            android:id="@+id/wheel_view_month"
+            android:layout_width="115px"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="40px"
+            android:contentDescription="wheel-month" />
+
+        <TextView
+            android:id="@+id/text_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="tv-year"
+            android:textColor="@color/ici28c_color_text_status"
+            android:textSize="@dimen/calendar_picker_selected"
+            android:visibility="gone" />
+
+        <com.android.widget_extra.wheelview.WheelView
+            android:id="@+id/wheel_view_day"
+            android:layout_width="132px"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="50px"
+            android:contentDescription="wheel-day" />
+
+        <TextView
+            android:id="@+id/text_month"
+            android:layout_width="52px"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="tv-year"
+            android:textColor="@color/ici28c_color_text_status"
+            android:textSize="@dimen/calendar_picker_selected"
+            android:visibility="gone"></TextView>
+
+        <com.android.widget_extra.wheelview.WheelView
+            android:id="@+id/wheel_view_year"
+            android:layout_width="140px"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="40px"
+            android:layout_marginRight="35px"
+            android:contentDescription="wheel-day" />
+
+        <TextView
+            android:id="@+id/text_day"
+            android:layout_width="52px"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="tv-day"
+            android:textColor="@color/ici28c_color_text_status"
+            android:textSize="@dimen/calendar_picker_selected"
+            android:visibility="gone"></TextView>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/wheelview_ll_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@+id/wheelview_ll_left"
+        android:contentDescription="ll-right"
+        android:visibility="visible">
+
+        <com.android.widget_extra.wheelview.WheelView
+            android:id="@+id/wheel_view_hour"
+            android:layout_width="90px"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="25px"
+            android:contentDescription="wheel-hour" />
+
+        <TextView
+            android:id="@+id/text_colon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="143px"
+            android:layout_marginTop="104px"
+            android:contentDescription="tv-hour"
+            android:text=":"
+            android:textColor="@color/ici28c_color_text_status"
+            android:textSize="@dimen/calendar_picker_selected"></TextView>
+
+        <com.android.widget_extra.wheelview.WheelView
+            android:id="@+id/wheel_view_minute"
+            android:layout_width="90px"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="197px"
+            android:contentDescription="wheel-minute" />
+
+        <com.android.widget_extra.wheelview.WheelView
+            android:id="@+id/wheel_view_am"
+            android:layout_width="90px"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="319px"
+            android:contentDescription="wheel-am" />
+    </RelativeLayout>
+</LinearLayout>

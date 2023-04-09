@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:Android="http://schemas.android.com/apk/res/android">
+    <item
+        Android:bottom="12px"
+        Android:drawable="@drawable/ici28b_selectioncontrols_checkbox_check_normal"
+        Android:left="8px"
+        Android:right="8px"
+        Android:top="12px" />
+    <item Android:drawable="@drawable/ici28b_selectioncontrols_checkbox_box_normal" />
+</layer-list>

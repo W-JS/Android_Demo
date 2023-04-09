@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:contentDescription="ll-picker">
+
+    <RelativeLayout
+        android:id="@+id/wheelview_ll_left"
+        android:layout_width="wrap_content"
+        android:layout_height="266px"
+        android:orientation="horizontal"
+        android:contentDescription="ll-left">
+
+        <com.android.widget_extra.wheelview.WheelView
+            android:id="@+id/wheel_view_year"
+            android:layout_width="200px"
+            android:layout_height="match_parent"
+            android:contentDescription="wheel-year"
+            android:layout_marginLeft="20px" />
+
+        <TextView
+            android:id="@+id/text_year"
+            android:layout_width="40px"
+            android:layout_height="wrap_content"
+            android:text="@string/ici_datepick_year"
+            android:textColor="@color/ici28c_color_text_status"
+            android:textSize="@dimen/calendar_picker_selected"
+            android:contentDescription="tv-year"
+            android:layout_marginTop="107px"
+            android:layout_marginLeft="174px">
+
+        </TextView>
+
+        <com.android.widget_extra.wheelview.WheelView
+            android:id="@+id/wheel_view_month"
+            android:layout_width="132px"
+            android:layout_height="match_parent"
+            android:contentDescription="wheel-month"
+            android:layout_marginLeft="250px"
+
+            />
+
+        <TextView
+            android:id="@+id/text_month"
+            android:layout_width="40px"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="341px"
+            android:layout_marginTop="107px"
+            android:text="@string/ici_datepick_month"
+            android:textColor="@color/ici28c_color_text_status"
+            android:textSize="@dimen/calendar_picker_selected"
+            android:contentDescription="tv-month"></TextView>
+
+        <com.android.widget_extra.wheelview.WheelView
+            android:id="@+id/wheel_view_day"
+            android:layout_width="132px"
+            android:layout_height="match_parent"
+            android:contentDescription="wheel-day"
+            android:layout_marginLeft="412px"
+            android:layout_marginRight="54px" />
+
+        <TextView
+            android:id="@+id/text_day"
+            android:layout_width="40px"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="505px"
+            android:layout_marginTop="107px"
+            android:text="@string/ici_datepick_day"
+            android:textColor="@color/ici28c_color_text_status"
+            android:textSize="@dimen/calendar_picker_selected"
+            android:contentDescription="tv-day"></TextView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:visibility="visible"
+        android:id="@+id/wheelview_ll_right"
+        android:layout_width="wrap_content"
+        android:layout_height="266px"
+        android:orientation="horizontal"
+        android:contentDescription="ll-right">
+
+        <com.android.widget_extra.wheelview.WheelView
+            android:id="@+id/wheel_view_hour"
+            android:layout_width="90px"
+            android:layout_height="match_parent"
+            android:contentDescription="wheel-hour"
+            android:layout_marginLeft="24px" />
+
+        <TextView
+            android:id="@+id/text_colon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="145px"
+            android:text="："
+            android:textColor="@color/ici28c_color_text_status"
+            android:textSize="@dimen/calendar_picker_selected"
+            android:contentDescription="tv-hour"
+            android:layout_marginTop="107px"></TextView>
+
+        <com.android.widget_extra.wheelview.WheelView
+            android:id="@+id/wheel_view_minute"
+            android:layout_width="90px"
+            android:layout_height="match_parent"
+            android:contentDescription="wheel-minute"
+            android:layout_marginLeft="204px" />
+
+        <com.android.widget_extra.wheelview.WheelView
+            android:id="@+id/wheel_view_am"
+            android:layout_width="94px"
+            android:layout_height="match_parent"
+            android:contentDescription="wheel-am"
+            android:layout_marginLeft="334px"
+            android:layout_marginRight="32px" />
+    </RelativeLayout>
+</LinearLayout>

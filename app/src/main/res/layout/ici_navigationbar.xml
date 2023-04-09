@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.android.widget_extra.button.ICIIconButton
+        android:id="@+id/ici_navi_back"
+        android:layout_width="128px"
+        android:layout_height="114px"
+        android:layout_centerVertical="true"
+        android:paddingLeft="28px"
+        android:paddingTop="21px"
+        android:paddingRight="28px"
+        android:paddingBottom="21px"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/ici_navi_title"
+        android:layout_width="608px"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="128px"
+        android:ellipsize="end"
+        android:gravity="left"
+        android:lines="1"
+        android:textColor="@color/ici_white"
+        android:textSize="@dimen/ici_text_navi" />
+
+    <LinearLayout
+        android:id="@+id/ici_navigation_group"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal"></LinearLayout>
+
+    <ImageView
+        android:id="@+id/ici_navigation_line"
+        android:layout_width="match_parent"
+        android:layout_height="4px"
+        android:layout_alignParentBottom="true"></ImageView>
+</merge>

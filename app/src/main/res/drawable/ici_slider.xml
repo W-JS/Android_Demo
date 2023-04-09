@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--背景色设置为透明-->
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/ici_slider_bg" />
+            <size
+                android:width="800px"
+                android:height="4px"></size>
+        </shape>
+    </item>
+
+    <!--进度条颜色设置为蓝粉渐变 其中颜色在color.xml文件中自定义-->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape android:shape="rectangle">
+                <gradient
+                    android:angle="180"
+                    android:endColor="@color/ici_slider_end"
+                    android:startColor="@color/ici_slider_start" />
+            </shape>
+        </clip>
+    </item>
+</layer-list>

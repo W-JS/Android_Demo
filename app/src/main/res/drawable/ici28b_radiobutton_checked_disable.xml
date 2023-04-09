@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:Android="http://schemas.android.com/apk/res/android">
+    <item
+        Android:drawable="@drawable/ici28b_selectedcontrols_radiobutton_on_dot_disbale"
+        Android:width="40px"
+        Android:height="40px"
+        Android:gravity="center" />
+
+    <item
+        Android:drawable="@drawable/ici28b_selectedcontrols_radiobutton_off_disable"
+        Android:width="52px"
+        Android:height="52px" />
+</layer-list>

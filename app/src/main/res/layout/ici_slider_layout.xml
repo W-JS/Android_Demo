@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/line_viewgroup"
+        android:layout_width="match_parent"
+        android:layout_height="4px"
+        android:background="@drawable/ici28c_slider_bg"
+        android:orientation="horizontal"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px">
+
+        <View
+            android:id="@+id/ici_slider_left_empty"
+            android:layout_width="0px"
+            android:layout_height="match_parent" />
+
+        <com.android.widget_extra.progress.SliderColorView
+            android:id="@+id/ici_slider_left"
+            android:layout_width="0px"
+            android:layout_height="match_parent" />
+
+        <com.android.widget_extra.progress.SliderColorView
+            android:id="@+id/ici_slider_right"
+            android:layout_width="0px"
+            android:layout_height="match_parent" />
+
+        <View
+            android:id="@+id/ici_slider_right_empty"
+            android:layout_width="0px"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ici_slider_image2"
+        android:layout_width="60px"
+        android:layout_height="58px"
+        android:layout_centerVertical="true" />
+
+</RelativeLayout>

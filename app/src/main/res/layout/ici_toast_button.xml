@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/ici_toast_viewgroup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_marginLeft="10px"
+        android:layout_marginRight="10px"
+        android:layout_marginBottom="10px"
+        android:elevation="10px">
+
+        <ImageView
+            android:id="@+id/ici_toast_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></ImageView>
+
+        <Button
+            android:id="@+id/ici_toast_button"
+            android:layout_width="221px"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:textAllCaps="false"
+            android:textSize="@dimen/ici_toast_dimen_text"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/ici_toast_icon"
+            android:layout_width="80px"
+            android:layout_height="80px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="27px"
+            android:padding="13px"
+            android:visibility="gone"></ImageView>
+
+        <View
+            android:id="@+id/ici_toast_split"
+            android:layout_width="1px"
+            android:layout_height="80px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="223px"
+            android:layout_marginTop="31px"
+            android:visibility="gone"></View>
+
+        <TextView
+            android:id="@+id/ici_toast_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="282px"
+            android:layout_marginTop="27px"
+            android:layout_marginRight="68px"
+            android:layout_marginBottom="27px"
+            android:gravity="center"
+            android:maxWidth="1184px"
+            android:maxLines="2"
+            android:minWidth="520px"
+            android:textSize="@dimen/ici_toast_dimen_text" />
+    </RelativeLayout>
+</RelativeLayout>

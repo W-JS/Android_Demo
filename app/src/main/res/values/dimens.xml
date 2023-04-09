@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--start commonui -->
+    <dimen name="ici_min_touchare">118px</dimen>
+    <dimen name="ici_text_bigest">54px</dimen>
+    <dimen name="ici_text_big">40px</dimen>
+    <dimen name="ici_text_primary">36px</dimen>
+    <dimen name="ici_text_second">28px</dimen>
+    <dimen name="ici_text_button">32px</dimen>
+    <dimen name="ici_text_button_disable">28px</dimen>
+    <dimen name="ici_text_toggle_check">32px</dimen>
+    <dimen name="ici_text_navi">42px</dimen>
+    <dimen name="ici_text_navi_flat">32px</dimen>
+    <dimen name="calendar_picker_selected">40px</dimen>
+    <dimen name="wheelview_am_total_height">206px</dimen>
+    <dimen name="ici_dimen_list_main_tv">36px</dimen>
+    <dimen name="ici_dimen_list_two_tv">28px</dimen>
+    <dimen name="ici_input_dimen_textsize">32px</dimen>
+    <dimen name="ici_dimen_errtext_size">26px</dimen>
+    <dimen name="ici_input_dimen_textnumber">26px</dimen>
+    <dimen name="ici_dialog_dimen_text_title">42px</dimen>
+    <dimen name="ici_dialog_dimen_text_content">38px</dimen>
+    <dimen name="ici_dialog_dimen_button">36px</dimen>
+    <dimen name="ici_toast_dimen_text">36px</dimen>
+
+    <dimen name="ici_tabview_dimen_selected_content">40px</dimen>
+    <dimen name="ici_tabview_dimen_unselected_content">38px</dimen>
+
+    <dimen name="ici_list_dimen_maintext">40px</dimen>
+    <dimen name="ici_list_dimen_othertext">30px</dimen>
+    <!--end commonui -->
+</resources>

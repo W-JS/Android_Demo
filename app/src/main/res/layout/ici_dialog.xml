@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10px"
+        android:layout_marginRight="10px"
+        android:layout_marginBottom="10px"
+        android:id="@+id/ici28_dialogvisiable"
+        android:elevation="10px">
+
+        <ImageView
+            android:id="@+id/ici_dialog_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/ici_dialog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="60px"
+            android:layout_marginTop="52px"
+            android:layout_centerHorizontal="true"
+            android:textSize="@dimen/ici_dialog_dimen_text_title"
+            android:textColor="#FFFFFFFF"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/ici_dialog_icon"
+            android:layout_width="130px"
+            android:layout_height="130px"
+            android:visibility="gone" />
+
+        <com.android.widget_extra.scroll.ICIVerticalScrollView
+            android:id="@+id/ici_dialog_scroll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/ici_dialog_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/ici_dialog_color_text"
+                    android:textSize="@dimen/ici_dialog_dimen_text_content" />
+            </LinearLayout>
+
+        </com.android.widget_extra.scroll.ICIVerticalScrollView>
+
+        <View
+            android:id="@+id/ici_dialog_topsplite"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginLeft="44px"
+            android:layout_marginRight="44px"
+            android:layout_above="@id/ici_dialog_btngroup" />
+
+        <LinearLayout
+            android:id="@+id/ici_dialog_btngroup"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="110px"
+            android:orientation="horizontal"
+            android:layout_alignParentEnd="true">
+
+            <Button
+                android:id="@+id/ici_dialog_btn1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="@dimen/ici_dialog_dimen_button"
+                android:gravity="center"
+                android:background="@drawable/ici28c_dialog_button_status"
+                android:visibility="gone"
+                android:textAllCaps="false" />
+
+            <View
+                android:id="@+id/ici_dialog_split1"
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                android:background="#4DB0BEE1" />
+
+            <Button
+                android:id="@+id/ici_dialog_btn2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="@dimen/ici_dialog_dimen_button"
+                android:textColor="@color/ici28c_dialog_button_white_status"
+                android:background="@drawable/ici28c_dialog_button_status"
+
+                android:gravity="center"
+                android:visibility="gone"
+                android:textAllCaps="false" />
+
+            <View
+                android:id="@+id/ici_dialog_split2"
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                android:background="#4DB0BEE1" />
+
+            <Button
+                android:id="@+id/ici_dialog_btn3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="@dimen/ici_dialog_dimen_button"
+                android:gravity="center"
+                android:textColor="@color/ici28c_dialog_button_white_status"
+                android:background="@drawable/ici28c_dialog_button_status"
+                android:visibility="gone"
+                android:textAllCaps="false" />
+        </LinearLayout>
+    </RelativeLayout>
+</merge>

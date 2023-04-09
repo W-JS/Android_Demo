@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/ici_editViewGroup"
+        android:layout_width="900px"
+        android:layout_height="80px"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/ici_input_edit"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="42px"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:textColor="@color/ici_white"
+            android:textColorHint="@color/ici28c_edit_hintcolor"
+            android:textCursorDrawable="@drawable/ici28c_text_cursor_line"
+            android:textSize="@dimen/ici_input_dimen_textsize"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/ici_input_suggest"
+            android:layout_width="wrap_content"
+            android:layout_height="39px"
+            android:textColor="#FF636A7B"
+            android:textSize="@dimen/ici_input_dimen_textnumber"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/ici_input_button_delete"
+            android:layout_width="98px"
+            android:layout_height="80px"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/ici_input_button_watch"
+            android:paddingLeft="19px"
+            android:paddingTop="10px"
+            android:paddingRight="19px"
+            android:paddingBottom="10px"
+            android:src="@drawable/ici28c_icon_60_close"
+            android:visibility="gone" />
+
+        <View
+            android:id="@+id/ici_edit_rightline"
+            android:layout_width="2px"
+            android:layout_height="43px"
+            android:layout_gravity="center_vertical"
+            android:background="#FF9EA7C0"
+            android:visibility="gone" />
+
+        <ImageView
+
+            android:id="@+id/ici_input_button_watch"
+            android:layout_width="98px"
+            android:layout_height="80px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="19px"
+            android:paddingTop="10px"
+            android:paddingRight="19px"
+            android:paddingBottom="10px"
+            android:src="@drawable/ici28c_edit_hide"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/ici_input_error_msg"
+        android:layout_width="652px"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="28px"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="2"
+        android:textColor="#ED2D30"
+        android:textSize="32px" />
+
+</merge>
