@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ici28c_bg"
+    android:gravity="center_vertical">
+
+    <include layout="@layout/layout_navibar"></include>
+
+    <com.android.widget_extra.selection.ICISwitchButton
+        android:layout_width="90px"
+        android:layout_height="72px"
+        android:layout_marginTop="30px"
+
+        />
+
+    <com.android.widget_extra.selection.ICICheckBox
+        android:layout_width="52px"
+        android:layout_height="52px"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:lines="1" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.android.widget_extra.selection.ICIRadioButton
+            android:layout_width="72px"
+            android:layout_height="72px"
+            android:layout_marginTop="16dp"
+            android:text="选项一"
+            android:textSize="26px"
+            android:lines="1" />
+
+        <com.android.widget_extra.selection.ICIRadioButton
+            android:layout_width="72px"
+            android:layout_height="72px"
+            android:layout_marginTop="16dp"
+            android:text="选项二"
+            android:textSize="26px"
+            android:lines="1" />
+
+        <com.android.widget_extra.selection.ICIRadioButton
+            android:layout_width="72px"
+            android:layout_height="72px"
+            android:layout_marginTop="16dp"
+            android:text="选项三"
+            android:textSize="26px"
+            android:lines="1" />
+
+    </RadioGroup>
+</LinearLayout>

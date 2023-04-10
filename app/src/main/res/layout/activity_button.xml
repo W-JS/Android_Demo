@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ici28c_bg">
+
+    <include layout="@layout/layout_navibar"></include>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="72px"
+        android:layout_marginLeft="72px">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.android.widget_extra.button.ICIRealButton
+                android:id="@+id/ici_realbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="80px"
+                android:paddingLeft="80px"
+                android:paddingRight="80px" />
+
+            <com.android.widget_extra.button.ICIRealButton
+                android:id="@+id/ici_realbutton2"
+                android:layout_width="wrap_content"
+                android:layout_height="80px"
+                android:paddingLeft="80px"
+                android:paddingRight="80px"
+                android:layout_marginTop="12px" />
+
+            <com.android.widget_extra.button.ICIRealButton
+                android:id="@+id/ici_realbutton3"
+                android:layout_width="wrap_content"
+                android:layout_height="80px"
+                android:paddingLeft="80px"
+                android:paddingRight="80px"
+                android:layout_marginTop="12px"
+                android:visibility="gone" />
+
+            <com.android.widget_extra.button.ICIRealButton
+                android:id="@+id/ici_realbutton4"
+                android:layout_width="wrap_content"
+                android:layout_height="80px"
+                android:paddingLeft="80px"
+                android:paddingRight="80px"
+                android:layout_marginTop="12px"
+
+                />
+
+            <com.android.widget_extra.button.ICIRealButton
+                android:id="@+id/ici_realbutton5"
+                android:layout_width="wrap_content"
+                android:layout_height="80px"
+                android:paddingLeft="80px"
+                android:paddingRight="80px"
+                android:layout_marginTop="12px"
+                android:visibility="gone" />
+
+            <com.android.widget_extra.button.ICIFlatButton
+                android:id="@+id/flatbutton_orange"
+                android:layout_width="wrap_content"
+                android:layout_height="80px"
+                android:layout_marginTop="50px"
+                android:textSize="32px"
+                android:paddingLeft="80px"
+                android:paddingRight="80px"></com.android.widget_extra.button.ICIFlatButton>
+
+            <com.android.widget_extra.button.ICIFlatButton
+                android:id="@+id/flatbutton_blue"
+                android:layout_width="wrap_content"
+                android:layout_height="80px"
+                android:layout_marginTop="50px"
+                android:textSize="32px"
+                android:paddingLeft="80px"
+                android:paddingRight="80px"
+                android:visibility="gone"></com.android.widget_extra.button.ICIFlatButton>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="IconButton"
+                android:layout_marginTop="30px"></TextView>
+
+            <com.android.widget_extra.button.ICIIconButton
+                android:id="@+id/iconbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="80px"></com.android.widget_extra.button.ICIIconButton>
+
+            <com.android.widget_extra.button.ICIGhostButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80px"
+                android:text="Ghost Button"
+                android:padding="20px"></com.android.widget_extra.button.ICIGhostButton>
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

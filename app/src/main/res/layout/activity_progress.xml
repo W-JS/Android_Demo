@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/layout_navibar"></include>
+
+    <com.android.widget_extra.progress.ICIProgressCircular
+        android:id="@+id/progress_circular"
+        android:layout_width="60px"
+        android:layout_height="60px"
+        android:layout_marginTop="30px" />
+
+    <com.android.widget_extra.progress.ICIProgressCircular
+        android:id="@+id/progress_circular2"
+        android:layout_width="98px"
+        android:layout_height="98px"
+        android:layout_marginTop="30px" />
+
+    <com.android.widget_extra.progress.ICIProgressCircular
+        android:id="@+id/progress_circular3"
+        android:layout_width="170px"
+        android:layout_height="170px"
+        android:layout_marginTop="30px" />
+
+    <com.android.widget_extra.progress.ICI28Progress
+        android:id="@+id/ici_progress_line"
+        android:layout_width="1000px"
+        android:layout_height="8px"
+        android:layout_marginTop="30px" />
+
+    <com.android.widget_extra.progress.ICISlider
+        android:id="@+id/ici_silider"
+        android:layout_width="match_parent"
+        android:layout_height="56px"></com.android.widget_extra.progress.ICISlider>
+
+
+</LinearLayout>

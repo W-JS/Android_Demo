@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        layout="@layout/layout_navibar"
+        android:id="@+id/na"></include>
+
+    <com.android.widget_extra.tab.ICI28TabView
+        android:layout_below="@id/na"
+        android:id="@+id/ici_inficator_tab"
+        android:layout_width="match_parent"
+        android:layout_height="114px"></com.android.widget_extra.tab.ICI28TabView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"></View>
+
+    <com.android.widget_extra.other.ICIIndicatorView
+        android:id="@+id/ici_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="72dp"
+        android:gravity="center"></com.android.widget_extra.other.ICIIndicatorView>
+
+</LinearLayout>

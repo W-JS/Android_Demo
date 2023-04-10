@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/layout_navibar"></include>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.android.widget_extra.textfield.ICIInputText
+                android:id="@+id/ici_input_view2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px"
+                android:layout_marginLeft="15px" />
+
+            <com.android.widget_extra.textfield.ICIInputText
+                android:id="@+id/ici_input_view3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px"
+                android:layout_marginLeft="15px" />
+
+            <com.android.widget_extra.textfield.ICIInputText
+                android:id="@+id/ici_input_view4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px"
+                android:layout_marginLeft="15px" />
+
+            <com.android.widget_extra.textfield.ICIInputText
+                android:id="@+id/ici_input_view5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px"
+                android:layout_marginLeft="15px" />
+
+            <com.android.widget_extra.textfield.ICIInputText
+                android:id="@+id/ici_input_view6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px"
+                android:layout_marginLeft="15px" />
+
+            <com.android.widget_extra.textfield.ICIInputText
+                android:id="@+id/ici_input_view7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px"
+                android:layout_marginLeft="15px" />
+
+            <com.android.widget_extra.textfield.ICIInputText
+                android:id="@+id/ici_input_view8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px"
+                android:layout_marginLeft="15px" />
+
+            <com.android.widget_extra.textfield.ICIInputText
+                android:id="@+id/ici_input_view9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px"
+                android:layout_marginLeft="15px" />
+
+            <com.android.widget_extra.textfield.ICIInputText
+                android:id="@+id/ici_input_view10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px"
+                android:layout_marginLeft="15px" />
+
+            <com.android.widget_extra.textfield.ICISearchBar
+                android:id="@+id/ici_sample_search"
+                android:layout_width="1090px"
+                android:layout_height="80px"
+                android:layout_marginTop="30px" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

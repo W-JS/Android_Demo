@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include layout="@layout/layout_navibar" />
+
+            <Button
+                android:id="@+id/sample_button"
+                android:layout_width="match_parent"
+                android:layout_height="128px"
+                android:layout_marginTop="24px"
+                android:text="ButtonActivity"
+
+                />
+
+            <Button
+                android:id="@+id/sample_tabview"
+                android:layout_width="match_parent"
+                android:layout_height="128px"
+                android:text="TabViewActivity"
+                android:layout_marginTop="24px" />
+
+            <Button
+                android:id="@+id/sample_subheader"
+                android:layout_width="match_parent"
+                android:layout_height="128px"
+                android:layout_marginTop="24px"
+                android:text="SubHeader"
+                android:visibility="gone"
+
+                />
+
+            <Button
+                android:id="@+id/sample_select"
+                android:layout_width="match_parent"
+                android:layout_height="128px"
+                android:layout_marginTop="24px"
+                android:text="Selection" />
+
+            <Button
+                android:id="@+id/sample_indocator"
+                android:layout_width="match_parent"
+                android:layout_height="128px"
+                android:layout_marginTop="24px"
+                android:text="Indicator"
+
+                />
+
+            <Button
+                android:id="@+id/sample_datepick"
+                android:layout_width="match_parent"
+                android:layout_height="128px"
+                android:layout_marginTop="24px"
+                android:text="DatePick" />
+
+            <Button
+                android:id="@+id/sample_list"
+                android:layout_width="match_parent"
+                android:layout_height="128px"
+                android:layout_marginTop="24px"
+                android:text="list" />
+
+            <Button
+                android:id="@+id/sample_mutitoggle"
+                android:layout_width="match_parent"
+                android:layout_height="128px"
+                android:layout_marginTop="24px"
+                android:text="MutiToggle"
+                android:visibility="gone"
+
+                />
+
+            <Button
+                android:id="@+id/sample_navibar"
+                android:layout_width="match_parent"
+                android:layout_height="128px"
+                android:layout_marginTop="24px"
+                android:text="NaviBar" />
+
+            <Button
+                android:id="@+id/sample_progress"
+                android:layout_width="match_parent"
+                android:layout_height="128px"
+                android:layout_marginTop="24px"
+                android:text="Progress" />
+
+            <Button
+                android:id="@+id/sample_textdeilf"
+                android:layout_width="match_parent"
+                android:layout_height="128px"
+                android:layout_marginTop="24px"
+                android:text="textdeilfActivity" />
+
+            <Button
+                android:id="@+id/sample_dialog"
+                android:layout_width="match_parent"
+                android:layout_height="128px"
+                android:layout_marginTop="24px"
+                android:text="DialogActivity" />
+
+            <Button
+                android:id="@+id/sample_toast"
+                android:layout_width="match_parent"
+                android:layout_height="128px"
+                android:layout_marginTop="24px"
+                android:text="ToastActivity" />
+
+            <Button
+                android:id="@+id/sample_scrollview"
+                android:layout_width="match_parent"
+                android:layout_height="128px"
+                android:layout_marginTop="24px"
+                android:text="ScrollView" />
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/layout_navibar"></include>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/ici_dialog1"
+                android:layout_width="match_parent"
+                android:layout_height="72px"
+                android:layout_marginTop="30px" />
+
+            <Button
+                android:id="@+id/ici_dialog2"
+                android:layout_width="match_parent"
+                android:layout_height="72px"
+                android:layout_marginTop="30px" />
+
+            <Button
+                android:id="@+id/ici_dialog3"
+                android:layout_width="match_parent"
+                android:layout_height="72px"
+                android:layout_marginTop="30px" />
+
+            <Button
+                android:id="@+id/ici_dialog4"
+                android:layout_width="match_parent"
+                android:layout_height="72px"
+                android:layout_marginTop="30px" />
+
+            <Button
+                android:id="@+id/ici_dialog5"
+                android:layout_width="match_parent"
+                android:layout_height="72px"
+                android:layout_marginTop="30px" />
+
+            <Button
+                android:id="@+id/ici_dialog6"
+                android:layout_width="match_parent"
+                android:layout_height="72px"
+                android:layout_marginTop="30px" />
+
+            <Button
+                android:id="@+id/ici_dialog7"
+                android:layout_width="match_parent"
+                android:layout_height="72px"
+                android:layout_marginTop="30px" />
+
+            <Button
+                android:id="@+id/ici_dialog8"
+                android:layout_width="match_parent"
+                android:layout_height="72px"
+                android:layout_marginTop="30px" />
+
+            <Button
+                android:id="@+id/ici_dialog9"
+                android:layout_width="match_parent"
+                android:layout_height="72px"
+                android:layout_marginTop="30px" />
+
+            <Button
+                android:id="@+id/ici_dialog10"
+                android:layout_width="match_parent"
+                android:layout_height="72px"
+                android:layout_marginTop="30px" />
+
+            <Button
+                android:id="@+id/ici_dialog11"
+                android:layout_width="match_parent"
+                android:layout_height="72px"
+                android:layout_marginTop="30px" />
+
+            <Button
+                android:id="@+id/ici_dialog12"
+                android:layout_width="match_parent"
+                android:layout_height="72px"
+                android:layout_marginTop="30px" />
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

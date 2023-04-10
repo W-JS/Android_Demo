@@ -26,6 +26,19 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity android:name=".widgetstest.WidgetsTestActivity"></activity>
+        <activity android:name=".widgetstest.ButtonActivity"></activity>
+        <activity android:name=".widgetstest.NavigationBarActivity"></activity>
+        <activity android:name=".widgetstest.TabViewActivity"></activity>
+        <activity android:name=".widgetstest.ListItemActivity"></activity>
+        <activity android:name=".widgetstest.SelectionControlActivity"></activity>
+        <activity android:name=".widgetstest.IndicatorActivity"></activity>
+        <activity android:name=".widgetstest.DatePickActivity"></activity>
+        <activity android:name=".widgetstest.ProgressActivity"></activity>
+        <activity android:name=".widgetstest.TexfieldActivity"></activity>
+        <activity android:name=".widgetstest.DialogActivity"></activity>
+        <activity android:name=".widgetstest.ToastActivity"></activity>
+        <activity android:name=".widgetstest.ScrollViewActivity"></activity>
     </application>
 
 </manifest>

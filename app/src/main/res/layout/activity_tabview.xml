@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_navibar"></include>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.android.widget_extra.tab.ICI28TabView
+                android:id="@+id/ici28_tabview"
+                android:layout_width="wrap_content"
+                android:layout_height="114px"
+
+                android:layout_marginTop="30px" />
+
+            <com.android.widget_extra.tab.ICI28TabView
+                android:id="@+id/ici28_tabview2"
+                android:layout_width="wrap_content"
+                android:layout_height="114px"
+
+                android:layout_marginTop="30px" />
+
+            <com.android.widget_extra.tab.ICI28TabView
+                android:id="@+id/ici28_tabview3"
+                android:layout_width="wrap_content"
+                android:layout_height="114px"
+
+                android:layout_marginTop="30px" />
+
+            <com.android.widget_extra.tab.ICI28TabView
+                android:id="@+id/ici28_tabview4"
+                android:layout_width="wrap_content"
+                android:layout_height="114px"
+
+                android:layout_marginTop="30px" />
+
+            <com.android.widget_extra.tab.ICI28TabView
+                android:id="@+id/ici28_tabview5"
+                android:layout_width="wrap_content"
+                android:layout_height="114px"
+
+                android:layout_marginTop="30px" />
+
+            <com.android.widget_extra.tab.ICI28TabView
+                android:id="@+id/ici28_tabview6"
+                android:layout_width="wrap_content"
+                android:layout_height="114px"
+
+                android:layout_marginTop="30px" />
+
+            <com.android.widget_extra.tab.ICI28TabView
+                android:id="@+id/ici28_tabview7"
+                android:layout_width="wrap_content"
+                android:layout_height="114px"
+
+                android:layout_marginTop="30px" />
+
+            <com.android.widget_extra.tab.ICI28TabView
+                android:id="@+id/ici28_tabview8"
+                android:layout_width="wrap_content"
+                android:layout_height="114px"
+
+                android:layout_marginTop="30px" />
+
+            <com.android.widget_extra.tab.ICI28TabView
+                android:id="@+id/ici28_tabview9"
+                android:layout_width="wrap_content"
+                android:layout_height="114px"
+
+                android:layout_marginTop="30px" />
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
