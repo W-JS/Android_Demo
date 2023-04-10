@@ -16,3 +16,5 @@ rootProject.name = "Android_Demo"
 include ':app'
 include ':mylibrary'
 include ':mylibrary2'
+include ':aidl_server'
+include ':aidl_client'

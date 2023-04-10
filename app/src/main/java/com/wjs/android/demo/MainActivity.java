@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_real_test:
                 Log.d(TAG, "onClick: 测试");
                 Log.d(TAG, "onClick: ScreenInfo: " + ScreenInfo.getScreenInfo(this));
+                // 模拟器 ScreenInfo: ScreenInfo{size=8.54400374531753, sizeStr='8.54', heightPixels=720, widthPixels=1920, screenRealMetrics='1920 X 720', density=1.5, densityDpi=240, densityDpiStr='240 dpi', scaledDensity=1.5, xdpi=240.0, ydpi=240.0, density_default=160}
+                // 真车机 ScreenInfo: ScreenInfo{size=12.816005617976296, sizeStr='12.82', heightPixels=720, widthPixels=1920, screenRealMetrics='1920 X 720', density=1.0, densityDpi=160, densityDpiStr='160 dpi', scaledDensity=1.0, xdpi=320.842, ydpi=320.842, density_default=160}
                 ToastUtils.showTestToast(this);
                 DialogUtils.getInstance(this).showTestDialog("这是一个测试Dialog");
                 break;
