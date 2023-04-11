@@ -48,7 +48,7 @@ task makeJar(type: Copy) {
     def _DestinationPath = 'build/libs/';
 
     // 删除存在的 jar 包
-    delete _DestinationPath + _NAME
+    delete _DestinationPath
     // 设置拷贝的文件
     from('build/intermediates/aar_main_jar/release/')
     // 打进jar包后的文件目录
