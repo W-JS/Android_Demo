@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
     private void sendMsg(String msg) {
         if (mMessageManager == null) {
             attemptToBindService();
+            return;
         }
         try {
             Log.d(TAG, "sendMsg: " + msg);
@@ -72,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
     private String getMsg() {
         if (mMessageManager == null) {
             attemptToBindService();
+            return "";
         }
         try {
             String msg = mMessageManager.getMsg();
