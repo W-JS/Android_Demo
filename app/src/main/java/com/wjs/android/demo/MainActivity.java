@@ -1,6 +1,8 @@
 package com.wjs.android.demo;
 
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,6 +19,8 @@ import com.wjs.android.demo.utils.ToastUtils;
 import com.wjs.android.demo.widgetstest.WidgetsTestActivity;
 import com.wjs.android.mylibrary.utils.DateTimeUtils;
 import com.wjs.android.mylibrary2.utils.DateUtils;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -46,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.d(TAG, "releaseTime:" + BuildConfig.RELEASE_TIME);
         Log.d(TAG, "getGitCommitInfo:" + BuildConfig.GIT_COMMITINFO);
         Log.d(TAG, "getGitCommitInfo:" + PropertiesUtils.getGitCommitInfo());
+        getPackageNameAppName();
     }
 
     @Override
@@ -65,6 +70,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             default:
+        }
+    }
+
+    private void getPackageNameAppName() {
+        PackageManager pm = getPackageManager();
+        List<PackageInfo> list = pm.getInstalledPackages(PackageManager.MATCH_UNINSTALLED_PACKAGES);
+        if (list != null) {
+            Log.d(TAG, "getPackageNameAppName: 应用的总个数:" + list.size());
+            for (PackageInfo packageInfo : list) {
+                // AndroidManifest 中的 package
+                String packageName = packageInfo.packageName;
+                // AndroidManifest 中的 label
+                String appName = packageInfo.applicationInfo.loadLabel(pm).toString();
+                Log.d(TAG, "getPackageNameAppName: ----------------------------------------------------------------------------------------------------");
+                Log.d(TAG, "getPackageNameAppName: packageName: " + packageName);
+                Log.d(TAG, "getPackageNameAppName:     appName: " + appName);
+            }
         }
     }
 }
