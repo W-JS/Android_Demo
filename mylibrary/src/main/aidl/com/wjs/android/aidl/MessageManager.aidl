@@ -1,14 +1,12 @@
 // MessageManager.aidl
 package com.wjs.android.aidl;
 
+import com.wjs.android.aidl.ICallbackListener;
+
 // Declare any non-default types here with import statements
 
 interface MessageManager {
-    /**
-     * Demonstrates some basic types that you can use as parameters
-     * and return values in AIDL.
-     */
-    void basicTypes(int anInt, long aLong, boolean aBoolean, float aFloat, double aDouble, String aString);
-    void sendMsg(String msg);
-    String getMsg();
+    void registerCallbackListener(ICallbackListener listener);
+    void unregisterCallbackListener(ICallbackListener listener);
+    void setCallbackChanged(String name, String val, String path);
 }
