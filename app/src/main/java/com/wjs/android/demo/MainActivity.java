@@ -74,6 +74,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void getPackageNameAppName() {
+        // 1、adb root
+        // 2、adb shell
+        // 3.1、pm list packages //查看所有包名
+        // 3.2、pm list packages -f //查看所有apk绝对路径以及包名
+        // 3.3、pm list packages -f com.baidu //查看包含com.baidu的apk绝对路径以及包名
         PackageManager pm = getPackageManager();
         List<PackageInfo> list = pm.getInstalledPackages(PackageManager.MATCH_UNINSTALLED_PACKAGES);
         if (list != null) {
