@@ -4,12 +4,15 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.android.widget_extra.button.ICIRealButton;
 import com.wjs.android.demo.model.ScreenInfo;
@@ -20,6 +23,10 @@ import com.wjs.android.demo.widgetstest.WidgetsTestActivity;
 import com.wjs.android.mylibrary.utils.DateTimeUtils;
 import com.wjs.android.mylibrary2.utils.DateUtils;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -28,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button mTestRealBtn;
     private Button mWidgetsTestBtn;
+    private Button mSaveLogBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +50,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mWidgetsTestBtn.setBackgroundColor(ICIRealButton.COLOR_GREEN);
         mWidgetsTestBtn.setOnClickListener(this);
 
+        mSaveLogBtn = findViewById(R.id.btn_save_log);
+        mSaveLogBtn.setBackgroundColor(ICIRealButton.COLOR_GREEN);
+        mSaveLogBtn.setOnClickListener(this);
+
         String todayDateTime = DateTimeUtils.getTodayDateTime();
         Toast.makeText(MainActivity.this, "调用jar包方法测试时间：" + todayDateTime, Toast.LENGTH_SHORT).show();
 
@@ -51,6 +63,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.d(TAG, "getGitCommitInfo:" + BuildConfig.GIT_COMMITINFO);
         Log.d(TAG, "getGitCommitInfo:" + PropertiesUtils.getGitCommitInfo());
         getPackageNameAppName();
+
+        ActivityCompat.requestPermissions(MainActivity.this, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case 1:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    //创建文件夹
+                    if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+                        // TODO 创建文件夹和文件
+                    }
+                    break;
+                }
+        }
     }
 
     @Override
@@ -68,6 +97,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Log.d(TAG, "onClick: 跳转");
                 Intent intent = new Intent(this, WidgetsTestActivity.class);
                 startActivity(intent);
+            case R.id.btn_save_log:
+                saveLogcat();
                 break;
             default:
         }
@@ -93,5 +124,62 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Log.d(TAG, "getPackageNameAppName:     appName: " + appName);
             }
         }
+    }
+
+    private void saveLogcat() {
+        // https://www.jianshu.com/p/9e7961221862
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Log.d(TAG, "saveLogcat: start");
+                InputStream is = null;
+                FileOutputStream fos = null;
+//                String[] command = new String[]{"logcat", "-b", "all", "*:V"};
+                String[] command = new String[]{"logcat"};
+                try {
+                    Process exec = Runtime.getRuntime().exec(command);
+                    is = exec.getInputStream();
+//                    String rootPath = "/sdcard";
+                    String rootPath = Environment.getExternalStorageDirectory().getPath();
+                    String path = rootPath + "/Logs/Logcat/";
+                    File dir = new File(path);
+                    if (!dir.exists()) {
+                        Log.d(TAG, "run: mkdirs: " + dir.mkdirs() + "," + dir.getAbsolutePath());
+                    }
+                    path = path + "logcat.log";
+                    File file = new File(path);
+                    if (!file.exists()) {
+                        Log.d(TAG, "run: createNewFile: " + file.createNewFile() + "," + file.getAbsolutePath());
+                    }
+                    //新建一个路径信息
+                    fos = new FileOutputStream(path);
+                    Log.d(TAG, "run: logPath: " + path);
+                    int len = 0;
+                    byte[] buf = new byte[1024];
+                    while (-1 != (len = is.read(buf))) {
+                        fos.write(buf, 0, len);
+                        fos.flush();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    if (null != fos) {
+                        try {
+                            fos.close();
+                        } catch (IOException e) {
+                            Log.e(TAG, "run: ", e);
+                        }
+                    }
+                    if (null != is) {
+                        try {
+                            is.close();
+                        } catch (IOException e) {
+                            Log.e(TAG, "run: ", e);
+                        }
+                    }
+                }
+                Log.d(TAG, "saveLogcat: end");
+            }
+        }).start();
     }
 }
