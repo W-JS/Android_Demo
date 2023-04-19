@@ -5,7 +5,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.util.Log;
 
-import com.android.widget_extra.dialog.ICIDialog;
+import com.android.widget_extra.dialog.ICICustomDialog;
 
 public class DialogUtils {
 
@@ -29,40 +29,78 @@ public class DialogUtils {
 
     /**
      * 显示更新主题Dialog
-     *
-     * @param content
      */
-    public void showTestDialog(String content) {
+    public void showTestDialog() {
         if (isShowing()) {
             Log.d(TAG, "showTestDialog: mTestDialog.isShowing(): " + mTestDialog.isShowing());
             return;
         }
-        mTestDialog = new ICIDialog.Builder(mContext)
-                .setContent(content, 1)
-                .setFirstButton("确定", onThemeDialogUpdateButtonClickLinster, true)
-                .setSecondButton("取消", onThemeDialogLaterButtonClickLinster)
-                //背景透明度
-                .setDimAmount(0.7f)
-                .build();
+
+        boolean isZn = true;
+        String content = "当前未使用默认主题，切换壁纸时将为您同步切换到默认主题。";
+        String title = "继续切换壁纸？";
+        String remind = "不再提醒";
+        String button1Text = "继续";
+        String button2Text = "取消";
+        if (!isZn) {
+            content = "Default theme is not \"Active\", and it will be applied at the same time if switch the wallpaper.";
+            title = "Continue Switching Wallpaper？";
+            remind = "Do not show again";
+            button1Text = "Continue";
+            button2Text = "Cancel";
+        }
+        mTestDialog = newDialog(content, title, remind, button1Text, button2Text);
         mTestDialog.show();
         Log.d(TAG, "showTestDialog: ");
     }
 
-    private ICIDialog.OnDialogButtonClickLinster onThemeDialogUpdateButtonClickLinster = new ICIDialog.OnDialogButtonClickLinster() {
-        @Override
-        public void onButtonClick(Dialog dialog, int i) {
-            Log.d(TAG, "onButtonClick: 确定");
-            dismissDialog();
+    private Dialog newDialog(String content, String title, String remind, String button1, String button2) {
+        ICICustomDialog.Builder builder = new ICICustomDialog.Builder(mContext);
+        if (content != null && !"".equals(content)) {
+            builder.setContent(content);
         }
-    };
+        if (title != null && !"".equals(title)) {
+            builder.setTitle(title);
+        }
+        if (remind != null && !"".equals(remind)) {
+            builder.setRemind(remind);
+        }
 
-    private ICIDialog.OnDialogButtonClickLinster onThemeDialogLaterButtonClickLinster = new ICIDialog.OnDialogButtonClickLinster() {
-        @Override
-        public void onButtonClick(Dialog dialog, int i) {
-            Log.d(TAG, "onButtonClick: 取消");
-            dismissDialog();
+        builder.setCheckBox(new ICICustomDialog.OnDialogButtonClickListener() {
+            @Override
+            public void onButtonClick(Dialog dialog, int which) {
+                String msg = "";
+                if (which == 3) {
+                    msg = "已选中";
+                } else if (which == 4) {
+                    msg = "未选中";
+                }
+                Log.d(TAG, "onButtonClick: 复选框 " + msg);
+            }
+        });
+        if (button1 != null && !"".equals(button1)) {
+            builder.setFirstButton(button1, new ICICustomDialog.OnDialogButtonClickListener() {
+                @Override
+                public void onButtonClick(Dialog dialog, int which) {
+                    Log.d(TAG, "onButtonClick: 继续");
+                    dismissDialog();
+                }
+            }, true);
         }
-    };
+        if (button2 != null && !"".equals(button2)) {
+            builder.setSecondButton(button2, new ICICustomDialog.OnDialogButtonClickListener() {
+                @Override
+                public void onButtonClick(Dialog dialog, int which) {
+                    Log.d(TAG, "onButtonClick: 取消");
+                    dismissDialog();
+                }
+            });
+        }
+
+        //设置优先级  不设置默认为普通dialog
+//        builder.setPrority(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT)
+        return builder.build();
+    }
 
     public boolean isShowing() {
         if (mTestDialog == null) {

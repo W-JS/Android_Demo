@@ -2,12 +2,10 @@ package com.wjs.android.demo.widgetstest;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 
-import com.android.widget_extra.dialog.ICICustomDialog;
 import com.android.widget_extra.dialog.ICIDialog;
 import com.wjs.android.demo.R;
 
@@ -15,33 +13,6 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        Button button0 = findViewById(R.id.ici_dialog0);
-        button0.setText("切换壁纸Dialog");
-        boolean isZn = true;
-        String content = "当前未使用默认主题，切换壁纸时将为您同步切换到默认主题。";
-        String title = "继续切换壁纸？";
-        String remind = "不再提醒";
-        String button1Text = "继续";
-        String button2Text = "取消";
-        if (!isZn) {
-            content = "Default theme is not \"Active\", and it will be applied at the same time if switch the wallpaper.";
-            title = "Continue Switching Wallpaper？";
-            remind = "Do not show again";
-            button1Text = "Continue";
-            button2Text = "Cancel";
-        }
-        String[] arr = {content, title, remind, button1Text, button2Text};
-        button0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                newShowDialog(arr[0]
-                        , arr[1]
-                        , arr[2]
-                        , arr[3]
-                        , arr[4]);
-            }
-        });
 
         Button button1 = findViewById(R.id.ici_dialog1);
         button1.setText("Signle line");
@@ -248,54 +219,6 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
                 .setPrority(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT)
                 .build();
         iciDialog.show();
-    }
-
-    private void newShowDialog(String content, String title, String remind, String button1, String button2) {
-        ICICustomDialog.Builder builder = new ICICustomDialog.Builder(this);
-        if (content != null && !"".equals(content)) {
-            builder.setContent(content);
-        }
-        if (title != null && !"".equals(title)) {
-            builder.setTitle(title);
-        }
-        if (remind != null && !"".equals(remind)) {
-            builder.setRemind(remind);
-        }
-
-        builder.setCheckBox(new ICICustomDialog.OnDialogButtonClickListener() {
-            @Override
-            public void onButtonClick(Dialog dialog, int which) {
-                String msg = "";
-                if (which == 3) {
-                    msg = "已选中";
-                } else if (which == 4) {
-                    msg = "未选中";
-                }
-                Log.d("DialogActivity", "onButtonClick: 复选框 " + msg);
-            }
-        });
-        if (button1 != null && !"".equals(button1)) {
-            builder.setFirstButton(button1, new ICICustomDialog.OnDialogButtonClickListener() {
-                @Override
-                public void onButtonClick(Dialog dialog, int which) {
-                    Log.d("DialogActivity", "onButtonClick: 继续");
-                    dialog.dismiss();
-                }
-            }, true);
-        }
-        if (button2 != null && !"".equals(button2)) {
-            builder.setSecondButton(button2, new ICICustomDialog.OnDialogButtonClickListener() {
-                @Override
-                public void onButtonClick(Dialog dialog, int which) {
-                    Log.d("DialogActivity", "onButtonClick: 取消");
-                    dialog.dismiss();
-                }
-            });
-        }
-
-        //设置优先级  不设置默认为普通dialog
-//        builder.setPrority(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT)
-        builder.build().show();
     }
 
     private void showDialog(String content, int imageResId, String title, String button1, String button2, String button3) {
