@@ -15,12 +15,15 @@ import androidx.core.app.ActivityCompat;
 
 import com.android.widget_extra.button.ICIRealButton;
 import com.wjs.android.demo.model.ScreenInfo;
+import com.wjs.android.demo.model.TestEvent;
 import com.wjs.android.demo.utils.DialogUtils;
 import com.wjs.android.demo.utils.PropertiesUtils;
 import com.wjs.android.demo.utils.ToastUtils;
 import com.wjs.android.demo.widgetstest.WidgetsTestActivity;
 import com.wjs.android.mylibrary.utils.DateTimeUtils;
 import com.wjs.android.mylibrary2.utils.DateUtils;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -35,6 +38,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button mTestDialogBtn;
     private Button mWidgetsTestBtn;
     private Button mSaveLogBtn;
+    private Button mEventBusBtn;
+
+    public int time = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +58,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mSaveLogBtn = findViewById(R.id.btn_save_log);
         mSaveLogBtn.setBackgroundColor(ICIRealButton.COLOR_GREEN);
         mSaveLogBtn.setOnClickListener(this);
+
+        mEventBusBtn = findViewById(R.id.btn_event_bus);
+        mEventBusBtn.setBackgroundColor(ICIRealButton.COLOR_GREEN);
+        mEventBusBtn.setOnClickListener(this);
 
         String todayDateTime = DateTimeUtils.getTodayDateTime();
         Log.d(TAG, "onCreate: 调用jar包方法测试时间：" + todayDateTime);
@@ -99,6 +109,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_save_log:
                 Log.d(TAG, "onClick: 保存日志");
                 saveLogcat();
+                break;
+            case R.id.btn_event_bus:
+                Log.d(TAG, "onClick: Event Bus");
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        do {
+                            TestEvent testEvent = new TestEvent(time);
+                            Log.d(TAG, "run: testEvent: " + testEvent);
+                            EventBus.getDefault().post(testEvent);
+                            try {
+                                Thread.sleep(200);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                            time += 10;
+                        } while (time <= 100);
+                        time = 0;
+                    }
+                }).start();
                 break;
             default:
                 Log.d(TAG, "onClick: Toast");
