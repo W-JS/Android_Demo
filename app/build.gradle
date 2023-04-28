@@ -5,6 +5,20 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file(rootDir.getAbsolutePath() + '/KeyStore/AndroidStudio.jks')
+            storePassword '123456'
+            keyAlias 'wjs_key'
+            keyPassword '123456'
+        }
+        release {
+            storeFile file(rootDir.getAbsolutePath() + '/KeyStore/AndroidStudio.jks')
+            storePassword '123456'
+            keyAlias 'wjs_key'
+            keyPassword '123456'
+        }
+    }
     namespace 'com.wjs.android.demo'
     compileSdk 32
 
