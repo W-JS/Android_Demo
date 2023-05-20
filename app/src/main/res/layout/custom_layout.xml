@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.wjs.android.demo.view.CustomView
+            android:id="@+id/rotateView1"
+            android:layout_width="240dip"
+            android:layout_height="300dip"
+            custom:bgcolor="#000000"
+            custom:degree="0"
+            custom:drawable="@drawable/photo1" />
+
+        <com.wjs.android.demo.view.CustomView
+            android:id="@+id/rotateView2"
+            android:layout_width="240dip"
+            android:layout_height="300dip"
+            android:layout_marginStart="20dip"
+            custom:bgcolor="#FF0000"
+            custom:degree="45"
+            custom:drawable="@drawable/photo2" />
+
+        <com.wjs.android.demo.view.CustomView
+            android:id="@+id/rotateView3"
+            android:layout_width="240dip"
+            android:layout_height="300dip"
+            android:layout_marginStart="20dip"
+            custom:bgcolor="#FFFF00"
+            custom:degree="30"
+            custom:drawable="@drawable/photo3" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip">
+
+        <com.wjs.android.demo.view.CustomView
+            android:id="@+id/rotateView4"
+            android:layout_width="240dip"
+            android:layout_height="300dip"
+            custom:bgcolor="#CCCCCC"
+            custom:degree="60"
+            custom:drawable="@drawable/photo4" />
+
+        <com.wjs.android.demo.view.CustomView
+            android:id="@+id/rotateView5"
+            android:layout_width="240dip"
+            android:layout_height="300dip"
+            android:layout_marginStart="20dip"
+            custom:bgcolor="#777777"
+            custom:degree="-30"
+            custom:drawable="@drawable/photo5" />
+
+        <com.wjs.android.demo.view.CustomView
+            android:id="@+id/rotateView6"
+            android:layout_width="240dip"
+            android:layout_height="300dip"
+            android:layout_marginStart="20dip"
+            custom:bgcolor="#123456"
+            custom:degree="-60"
+            custom:drawable="@drawable/photo6" />
+    </LinearLayout>
+
+</LinearLayout>
