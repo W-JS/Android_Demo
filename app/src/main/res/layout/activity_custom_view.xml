@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".CustomViewActivity">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -23,7 +25,7 @@
             android:layout_height="300dip"
             android:layout_marginStart="20dip"
             custom:bgcolor="#FF0000"
-            custom:degree="45"
+            custom:degree="30"
             custom:drawable="@drawable/photo2" />
 
         <com.wjs.android.demo.view.CustomView
@@ -32,7 +34,7 @@
             android:layout_height="300dip"
             android:layout_marginStart="20dip"
             custom:bgcolor="#FFFF00"
-            custom:degree="30"
+            custom:degree="45"
             custom:drawable="@drawable/photo3" />
     </LinearLayout>
 
@@ -64,7 +66,7 @@
             android:layout_height="300dip"
             android:layout_marginStart="20dip"
             custom:bgcolor="#123456"
-            custom:degree="-60"
+            custom:degree="-45"
             custom:drawable="@drawable/photo6" />
     </LinearLayout>
 

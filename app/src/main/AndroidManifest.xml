@@ -55,7 +55,14 @@
         <activity android:name=".widgetstest.ToastActivity"></activity>
         <activity android:name=".widgetstest.ScrollViewActivity"></activity>
         <activity
-            android:name=".CustomActivity"
+            android:name=".CustomViewActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".CustomViewGroupActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

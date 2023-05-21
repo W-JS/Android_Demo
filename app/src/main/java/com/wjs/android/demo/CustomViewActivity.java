@@ -5,14 +5,14 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class CustomActivity extends AppCompatActivity {
+public class CustomViewActivity extends AppCompatActivity {
 
-    private final static String TAG = CustomActivity.class.getSimpleName();
+    private final static String TAG = CustomViewActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.custom_layout);
         Log.d(TAG, "onCreate: ");
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_custom_view);
     }
 }

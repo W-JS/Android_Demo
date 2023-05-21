@@ -1,12 +1,16 @@
 package com.wjs.android.demo.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
+import android.graphics.Paint;
 import android.graphics.PixelFormat;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -54,6 +58,14 @@ public class CustomView extends View {
      * 图片的偏移量
      */
     private int mTranslateX, mTranslateY;
+    /**
+     * 图片资源文件ID
+     */
+    private int mResId;
+    /**
+     * 画笔
+     */
+    private Paint mPaint;
 
     public CustomView(Context context) {
         this(context, null);
@@ -76,40 +88,66 @@ public class CustomView extends View {
     public CustomView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         Log.d(TAG, "CustomView: ");
-        init(context, attrs);
+        initAttrs(context, attrs);
+        init();
     }
 
-    private void init(Context context, @Nullable AttributeSet attrs) {
-        Log.d(TAG, "init: ");
+    /**
+     * 该构造器仅适用于 自定义ViewGroup
+     */
+    public CustomView(Context context, int pResId, float pDegree, int pBgColor) {
+        super(context);
+        Log.d(TAG, "CustomView: ");
+        mResId = pResId;
+        mDegree = pDegree;
+        mBgColor = pBgColor;
+        init();
+    }
+
+    private void initAttrs(Context context, @Nullable AttributeSet attrs) {
+        Log.d(TAG, "initAttrs: ");
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CustomView);
-        Drawable drawable = typedArray.getDrawable(R.styleable.CustomView_drawable);
+        mResId = typedArray.getResourceId(R.styleable.CustomView_drawable, R.drawable.empty_photo);
         mDegree = typedArray.getFloat(R.styleable.CustomView_degree, 0);
-        mBgColor = typedArray.getColor(R.styleable.CustomView_bgcolor, Color.YELLOW);
+        mBgColor = typedArray.getColor(R.styleable.CustomView_bgcolor, Color.BLACK);
         typedArray.recycle();
+    }
+
+    private void init() {
+        Log.d(TAG, "init: ");
+        mMatrix = new Matrix();
+        mPaint = new Paint();
+        mPaint.setColor(Color.WHITE);
+        mPaint.setAntiAlias(true);
+        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setStrokeWidth(1);
+    }
+
+    /**
+     * 测量当前视图，将其设置为固定的宽度和高度。如果它的大小由其父级决定，则可以使用 widthMeasureSpec 和 heightMeasureSpec
+     */
+    @SuppressLint("DrawAllocation")
+    @Override
+    public void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        Log.d(TAG, "onMeasure: widthMeasureSpec: " + widthMeasureSpec + ",heightMeasureSpec: " + heightMeasureSpec);
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+        int width = MeasureSpec.getSize(widthMeasureSpec);
+        int height = MeasureSpec.getSize(heightMeasureSpec);
+
+        Log.d(TAG, "onMeasure: setMeasuredDimension: width: " + width + ",height: " + height);
+        setMeasuredDimension(width, height);
 
         // 将其中的drawable 转化为bitmap, 将其缩小到其对角线比当前View的宽跟高都要小
-        mBitmap = zoomBitmap(drawableToBitmap(drawable), mWidth, mHeight);
+        mBitmap = zoomBitmap(BitmapFactory.decodeResource(getResources(), mResId, null), width, height);
 
         // 旋转轴，位图的中心点
         mPivotX = mBitmap.getWidth() / 2;
         mPivotY = mBitmap.getHeight() / 2;
 
         // 平移，将位图平移到此视图的中心
-        mTranslateX = mWidth / 2 - mPivotX;
-        mTranslateY = mHeight / 2 - mPivotY;
-
-        mMatrix = new Matrix();
-    }
-
-    /**
-     * 测量当前视图，将其设置为固定的宽度和高度。如果它的大小由其父级决定，则可以使用 widthMeasureSpec 和 heightMeasureSpec
-     */
-    @Override
-    public void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        Log.d(TAG, "onMeasure: widthMeasureSpec: " + widthMeasureSpec + ",heightMeasureSpec: " + heightMeasureSpec);
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        Log.d(TAG, "onMeasure: setMeasuredDimension: mWidth: " + mWidth + ",mHeight: " + mHeight);
-        setMeasuredDimension(mWidth, mHeight);
+        mTranslateX = width / 2 - mPivotX;
+        mTranslateY = height / 2 - mPivotY;
     }
 
     @Override
@@ -126,13 +164,24 @@ public class CustomView extends View {
         Log.d(TAG, "onDraw: ");
         super.onDraw(canvas);
         mMatrix.reset();
+
         // step1: 旋转位图
         mMatrix.postRotate(mDegree, mPivotX, mPivotY);
+
         // step2: 将位图移动到中心
         mMatrix.postTranslate(mTranslateX, mTranslateY);
+
         // step3: 通过 mBgColor 绘制 View 背景颜色
-        canvas.drawColor(mBgColor);
+        if (mBgColor != Color.BLACK) {
+            canvas.drawColor(mBgColor);
+        }
+
         canvas.drawBitmap(mBitmap, mMatrix, null);
+
+        Rect rect = canvas.getClipBounds();
+        rect.bottom--;
+        rect.right--;
+        canvas.drawRect(rect, mPaint);
     }
 
     /**

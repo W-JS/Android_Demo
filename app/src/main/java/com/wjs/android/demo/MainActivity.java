@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button mSaveLogBtn;
     private Button mEventBusBtn;
     private Button mCustomViewBtn;
+    private Button mCustomViewGroupBtn;
 
     public int time = 0;
 
@@ -67,6 +68,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mCustomViewBtn = findViewById(R.id.btn_custom_view);
         mCustomViewBtn.setBackgroundColor(ICIRealButton.COLOR_GREEN);
         mCustomViewBtn.setOnClickListener(this);
+
+        mCustomViewGroupBtn = findViewById(R.id.btn_custom_view_group);
+        mCustomViewGroupBtn.setBackgroundColor(ICIRealButton.COLOR_GREEN);
+        mCustomViewGroupBtn.setOnClickListener(this);
 
         String todayDateTime = DateTimeUtils.getTodayDateTime();
         Log.d(TAG, "onCreate: 调用jar包方法测试时间：" + todayDateTime);
@@ -137,7 +142,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_custom_view:
                 Log.d(TAG, "onClick: Custom View");
-                startActivity(new Intent(MainActivity.this, CustomActivity.class));
+                startActivity(new Intent(MainActivity.this, CustomViewActivity.class));
+                break;
+            case R.id.btn_custom_view_group:
+                Log.d(TAG, "onClick: Custom View Group");
+                startActivity(new Intent(MainActivity.this, CustomViewGroupActivity.class));
                 break;
             default:
                 Log.d(TAG, "onClick: Toast");
