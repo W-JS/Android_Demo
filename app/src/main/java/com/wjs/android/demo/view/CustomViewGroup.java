@@ -20,6 +20,7 @@ import com.wjs.android.demo.R;
  * @Author jinshengw
  * 参考: https://blog.csdn.net/linmiansheng/article/details/17934397
  * 参考: https://blog.csdn.net/linmiansheng/article/details/18031465
+ * Android事件分发机制 参考: https://www.jianshu.com/p/38015afcdb58
  */
 public class CustomViewGroup extends ViewGroup implements View.OnTouchListener {
 
@@ -236,5 +237,29 @@ public class CustomViewGroup extends ViewGroup implements View.OnTouchListener {
 
     private enum Direction {
         Current, Next
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        Log.d(TAG, "dispatchTouchEvent: BEF: " + ev);
+        boolean dispatchTouchEvent = super.dispatchTouchEvent(ev);
+        Log.d(TAG, "dispatchTouchEvent: AFT: " + dispatchTouchEvent + "," + ev);
+        return dispatchTouchEvent;
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        Log.d(TAG, "onInterceptTouchEvent: BEF: " + ev);
+        boolean interceptTouchEvent = super.onInterceptTouchEvent(ev);
+        Log.d(TAG, "onInterceptTouchEvent: AFT: " + interceptTouchEvent + "," + ev);
+        return interceptTouchEvent;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        Log.d(TAG, "onTouchEvent: BEF: " + event);
+        boolean touchEvent = super.onTouchEvent(event);
+        Log.d(TAG, "onTouchEvent: AFT: " + touchEvent + "," + event);
+        return touchEvent;
     }
 }

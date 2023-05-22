@@ -14,6 +14,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -216,6 +217,22 @@ public class CustomView extends View {
         float scale = Math.min(scaleX, scaleY);
         pMatrix.postScale(scale, scale);
         return Bitmap.createBitmap(oldBitmap, 0, 0, oldWidth, oldHeight, pMatrix, true);
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        Log.d(TAG, "dispatchTouchEvent: BEF: " + ev);
+        boolean dispatchTouchEvent = super.dispatchTouchEvent(ev);
+        Log.d(TAG, "dispatchTouchEvent: AFT: " + dispatchTouchEvent + "," + ev);
+        return dispatchTouchEvent;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        Log.d(TAG, "onTouchEvent: BEF: " + event);
+        boolean touchEvent = super.onTouchEvent(event);
+        Log.d(TAG, "onTouchEvent: AFT: " + touchEvent + "," + event);
+        return touchEvent;
     }
 
 }
